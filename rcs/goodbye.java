@@ -1,7 +1,7 @@
 public goodbye {
-    private String phrase;
+    private static String phrase;
 
-    public void bye() {
+    public static void bye() {
         System.out.println("bye bye!");
     }
 }
