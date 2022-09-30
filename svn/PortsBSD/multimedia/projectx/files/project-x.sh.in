@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# $FreeBSD: head/multimedia/projectx/files/project-x.sh.in 518482 2019-11-26 21:46:12Z jkim $
+
+case "$#" in
+0)
+	mkdir -p "${HOME}/.projectx"
+	cd "${HOME}/.projectx"
+	ln -sf %%DATADIR%%/*.txt %%DATADIR%%/htmls .
+	if ! grep '^# ProjectX 0.90.4.00' X.ini >/dev/null 2>&1; then
+		rm -f X.ini
+	fi
+	;;
+esac
+
+exec "%%LOCALBASE%%/bin/java" -jar "%%DATADIR%%/ProjectX.jar" "$@"

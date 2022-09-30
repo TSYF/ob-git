@@ -1,0 +1,15 @@
+--- src/CMakeLists.txt.orig	2021-02-18 07:59:16 UTC
++++ src/CMakeLists.txt
+@@ -415,6 +415,12 @@ if(ENABLE_OPENCV)
+ endif()
+ add_feature_info("OpenCV algorithms" ENABLE_OPENCV "Use OpenCV algorithms")
+ 
++find_library(EXECINFO_LIBRARY NAMES execinfo)
++if(NOT EXECINFO_LIBRARY)
++	message(FATAL_ERROR "${EXECINFO_LIBRARY}")
++endif(NOT EXECINFO_LIBRARY)
++target_link_libraries(openshot PUBLIC ${EXECINFO_LIBRARY})
++
+ ###############  LINK LIBRARY  #################
+ # Link remaining dependency libraries
+ if(DEFINED PROFILER)

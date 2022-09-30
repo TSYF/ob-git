@@ -1,0 +1,4 @@
+# $FreeBSD: head/devel/electron11/Makefile.version 566394 2021-02-23 12:24:19Z tagattie $
+
+ELECTRON_VER=	11.3.0
+ELECTRON_VER_MAJOR=	${ELECTRON_VER:C/\..*//}
